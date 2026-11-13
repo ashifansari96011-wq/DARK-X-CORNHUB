@@ -34,7 +34,6 @@
             padding-bottom: 80px;
         }
 
-        /* Top Navbar */
         header {
             background: var(--bg-glass);
             backdrop-filter: blur(14px);
@@ -61,10 +60,7 @@
             user-select: none;
         }
 
-        .brand-logo .white-txt {
-            color: #ffffff;
-        }
-
+        .brand-logo .white-txt { color: #ffffff; }
         .brand-logo .hub-box {
             background: var(--brand-orange);
             color: #000000;
@@ -73,7 +69,6 @@
             margin-left: 3px;
         }
 
-        /* Search Bar */
         .search-wrap {
             flex: 1;
             max-width: 450px;
@@ -97,7 +92,6 @@
             box-shadow: 0 0 12px rgba(255, 144, 0, 0.25);
         }
 
-        /* Category Pills (Only All + 2 Categories) */
         .categories-bar {
             max-width: 1350px;
             margin: 18px auto 10px;
@@ -130,7 +124,6 @@
             box-shadow: 0 4px 15px rgba(255, 144, 0, 0.3);
         }
 
-        /* Video Grid */
         .container {
             max-width: 1350px;
             margin: 15px auto;
@@ -150,7 +143,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            transition: transform 0.25s ease, border-color 0.25s ease;
         }
 
         .video-card:hover {
@@ -205,9 +198,7 @@
             z-index: 5;
         }
 
-        .play-overlay-btn:hover {
-            transform: scale(1.06);
-        }
+        .play-overlay-btn:hover { transform: scale(1.06); }
 
         .badge-size {
             position: absolute;
@@ -250,7 +241,6 @@
             margin-top: auto;
         }
 
-        /* Share Bar */
         .share-row {
             display: flex;
             gap: 8px;
@@ -287,7 +277,6 @@
             border-color: var(--brand-tg);
         }
 
-        /* Admin Edit Controls inside Card */
         .card-admin-tools {
             display: none;
             flex-direction: column;
@@ -307,10 +296,7 @@
             outline: none;
         }
 
-        .admin-btn-row {
-            display: flex;
-            gap: 6px;
-        }
+        .admin-btn-row { display: flex; gap: 6px; }
 
         .btn-sm {
             flex: 1;
@@ -326,7 +312,6 @@
         .btn-hide { background: #27272a; color: #fff; }
         .btn-del { background: var(--brand-red); color: #fff; }
 
-        /* Secret Corner Settings Button */
         .secret-gear {
             position: fixed;
             bottom: 20px;
@@ -355,7 +340,6 @@
             transform: rotate(45deg);
         }
 
-        /* Admin Drawer / Modal */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -390,30 +374,11 @@
             padding-bottom: 12px;
         }
 
-        .modal-header h3 {
-            color: var(--brand-orange);
-            font-size: 1.2rem;
-        }
+        .modal-header h3 { color: var(--brand-orange); font-size: 1.2rem; }
+        .close-btn { background: none; border: none; color: var(--text-dim); font-size: 1.4rem; cursor: pointer; }
 
-        .close-btn {
-            background: none;
-            border: none;
-            color: var(--text-dim);
-            font-size: 1.4rem;
-            cursor: pointer;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .form-group label {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-        }
-
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group label { font-size: 0.85rem; color: var(--text-dim); }
         .form-group input, .form-group select {
             background: #09090b;
             border: 1px solid #3f3f46;
@@ -434,9 +399,19 @@
             transition: 0.2s;
         }
 
-        .action-btn.secondary {
-            background: #27272a;
-            color: #fff;
+        .action-btn.secondary { background: #27272a; color: #fff; }
+
+        .status-log {
+            background: #09090b;
+            border: 1px solid #27272a;
+            color: #22c55e;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-family: monospace;
+            max-height: 110px;
+            overflow-y: auto;
+            display: none;
         }
 
         .empty-box {
@@ -446,7 +421,6 @@
             color: var(--text-dim);
         }
 
-        /* Toast Notification */
         #toast {
             position: fixed;
             bottom: 30px;
@@ -466,7 +440,6 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="brand-logo" onclick="resetFilter()">
             <span class="white-txt">DARK-X-</span><span class="hub-box">CORNHUB</span>
@@ -477,29 +450,23 @@
         </div>
     </header>
 
-    <!-- Category Bar (Only All + 2 Requested Categories) -->
     <div class="categories-bar">
         <div class="cat-pill active" id="pill_All" onclick="filterCat('All', this)">🔥 ALL VIDEOS</div>
         <div class="cat-pill" id="pill_HANTAI" onclick="filterCat('HANTAI', this)">🎌 HANTAI</div>
         <div class="cat-pill" id="pill_CORN REAL" onclick="filterCat('CORN REAL', this)">🌽 CORN REAL</div>
     </div>
 
-    <!-- Main Video Grid -->
     <div class="container">
         <div class="video-grid" id="videoGrid">
             <div class="empty-box">Loading DARK-X-CORNHUB videos...</div>
         </div>
     </div>
 
-    <!-- Toast Notification -->
     <div id="toast">Link Copied!</div>
 
-    <!-- Secret Bottom-Right Settings Icon -->
     <div class="secret-gear" id="gearBtn" onclick="openGearMenu()" title="Settings">⚙️</div>
 
-    <!-- Login & Admin Control Modal -->
     <div class="modal-overlay" id="adminModal">
-        <!-- Password Screen -->
         <div class="modal-box" id="loginBox">
             <div class="modal-header">
                 <h3>🔒 Admin Access</h3>
@@ -512,25 +479,27 @@
             <button class="action-btn" onclick="verifyAdmin()">Unlock Admin Panel</button>
         </div>
 
-        <!-- Full Admin Dashboard Screen -->
         <div class="modal-box" id="dashboardBox" style="display:none;">
             <div class="modal-header">
                 <h3>⚙️ DARK-X-CORNHUB Admin</h3>
                 <button class="close-btn" onclick="closeModal()">✖</button>
             </div>
 
-            <!-- Bot Auto Sync -->
+            <!-- Bot Auto Sync & Channel Fix -->
             <div class="form-group">
-                <label>1. Telegram Bot Auto-Sync (Bot DM & Channel Posts)</label>
-                <button class="action-btn" id="syncBtn" onclick="syncBotVideos()">🔄 Fetch New Videos from Bot</button>
-                <small style="color:var(--text-dim); font-size:0.75rem;">Tip: Agar video caption mein "hantai" likhoge toh auto HANTAI category mein jayega, warna CORN REAL mein.</small>
+                <label>1. Channel & Bot Sync (Fixes Channel Forward Issue)</label>
+                <button class="action-btn" id="syncBtn" onclick="fixAndSyncBot()">⚡ Fix Webhook & Sync Channel Videos</button>
+                <div class="status-log" id="syncLog"></div>
+                <small style="color:var(--text-dim); font-size:0.75rem;">
+                    <b>Important:</b> Channel mein bot ko Admin banate waqt <b>"Post Messages"</b> on rakhein. Button dabane ke baad channel mein 1 naya video forward karein!
+                </small>
             </div>
 
             <hr style="border:0; border-top:1px solid #27272a;">
 
-            <!-- Add Unlimited Size Video (2GB+ Support) -->
+            <!-- Add Unlimited Size Video -->
             <div class="form-group">
-                <label>2. Add Video Manually (Up to 2GB / Direct Link / Telegram Link)</label>
+                <label>2. Add Video Manually (Direct Link / Telegram Channel Post Link)</label>
                 <input type="text" id="customTitle" placeholder="Video Title...">
                 <input type="text" id="customUrl" placeholder="Direct MP4 Link OR Telegram Post Link (e.g. https://t.me/channel/123)">
                 <select id="customCat">
@@ -542,7 +511,6 @@
 
             <hr style="border:0; border-top:1px solid #27272a;">
 
-            <!-- Global Save for GitHub -->
             <div class="form-group">
                 <label>3. Save Changes for All GitHub Visitors</label>
                 <div style="display:flex; gap:8px;">
@@ -554,19 +522,10 @@
     </div>
 
     <script>
-        // ==========================================
-        // CONFIGURATION
-        // ==========================================
         const BOT_TOKEN = "8864793593:AAGNRUeo59XRw6Lo7lgwuw_18TgOhYL-beQ";
         const ADMIN_PASS = "Ashif@1234";
-
-        // Jab aap admin panel se customize kar lein, "Copy Data JSON" dabayein
-        // aur neeche null ki jagah paste kar dein taaki sabhi users ko dikhe:
         const GLOBAL_SAVED_DATA = null;
 
-        // ==========================================
-        // STATE MANAGEMENT
-        // ==========================================
         let isAdmin = false;
         let activeCategory = "All";
         const urlParams = new URLSearchParams(window.location.search);
@@ -577,7 +536,6 @@
             deletedIds: []
         };
 
-        // Ensure old categories map cleanly to the 2 allowed categories
         Object.values(db.videos).forEach(v => {
             if (v.category !== "HANTAI" && v.category !== "CORN REAL") {
                 v.category = "CORN REAL";
@@ -595,41 +553,77 @@
             setTimeout(() => { t.style.display = 'none'; }, 2500);
         }
 
+        function logStatus(msg) {
+            const box = document.getElementById('syncLog');
+            if (!box) return;
+            box.style.display = 'block';
+            box.innerHTML += `<div>> ${msg}</div>`;
+            box.scrollTop = box.scrollHeight;
+        }
+
         // ==========================================
-        // TELEGRAM BOT SYNC
+        // FIX WEBHOOK + FORCE CHANNEL_POST SYNC
         // ==========================================
-        async function syncBotVideos(silent = false) {
-            const syncBtn = document.getElementById('syncBtn');
-            if (syncBtn) syncBtn.innerText = "⏳ Syncing with Bot...";
+        async function fixAndSyncBot() {
+            const logBox = document.getElementById('syncLog');
+            if (logBox) logBox.innerHTML = '';
+            logStatus("Removing any old webhook...");
 
             try {
-                const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/getUpdates?limit=100`);
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/deleteWebhook?drop_pending_updates=false`);
+                logStatus("Webhook cleared! Requesting channel_post & message updates...");
+                await syncBotVideos(false);
+            } catch (e) {
+                logStatus("Error: " + e.message);
+            }
+        }
+
+        async function syncBotVideos(silent = false) {
+            const syncBtn = document.getElementById('syncBtn');
+            if (syncBtn) syncBtn.innerText = "⏳ Syncing Channel & Bot...";
+
+            try {
+                // Explicitly ask Telegram for channel_post, edited_channel_post, and message
+                const allowed = encodeURIComponent(JSON.stringify(["message", "channel_post", "edited_message", "edited_channel_post"]));
+                const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/getUpdates?limit=100&allowed_updates=${allowed}`);
                 const data = await res.json();
 
                 if (!data.ok) {
-                    if (!silent) alert("Bot Error: " + data.description);
-                    if (syncBtn) syncBtn.innerText = "🔄 Fetch New Videos from Bot";
+                    if (!silent) logStatus("Bot API Error: " + data.description);
+                    if (syncBtn) syncBtn.innerText = "⚡ Fix Webhook & Sync Channel Videos";
                     return;
                 }
 
+                if (!silent) logStatus(`Total raw updates received from Telegram: ${data.result.length}`);
+
                 let newCount = 0;
+                let videoFoundInUpdates = 0;
 
                 for (const item of data.result) {
-                    const msg = item.message || item.channel_post || item.edited_message || item.edited_channel_post;
+                    const msg = item.channel_post || item.edited_channel_post || item.message || item.edited_message;
                     if (!msg) continue;
 
-                    const videoObj = msg.video || (msg.document && msg.document.mime_type && msg.document.mime_type.startsWith('video/') ? msg.document : null);
+                    // Detect regular video, document video, or animation/gif
+                    const videoObj = msg.video ||
+                        (msg.document && msg.document.mime_type && msg.document.mime_type.startsWith('video/') ? msg.document : null) ||
+                        msg.animation;
 
                     if (videoObj) {
+                        videoFoundInUpdates++;
                         const uniqueId = videoObj.file_unique_id;
+
+                        // If user previously deleted it, restore it if they manually clicked Sync
+                        if (!silent && db.deletedIds.includes(uniqueId)) {
+                            db.deletedIds = db.deletedIds.filter(id => id !== uniqueId);
+                        }
                         if (db.deletedIds.includes(uniqueId)) continue;
 
-                        const sizeMB = (videoObj.file_size / (1024 * 1024)).toFixed(1);
+                        const sizeMB = videoObj.file_size ? (videoObj.file_size / (1024 * 1024)).toFixed(1) : "HD";
                         const isPublicChannel = msg.chat && msg.chat.username;
                         const tgPostLink = isPublicChannel ? `https://t.me/${msg.chat.username}/${msg.message_id}` : null;
-                        const rawTitle = msg.caption || videoObj.file_name || `DARK-X Video #${msg.message_id}`;
+                        const chatTitle = msg.chat && msg.chat.title ? `[${msg.chat.title}] ` : "";
+                        const rawTitle = msg.caption || videoObj.file_name || `${chatTitle}DARK-X Video #${msg.message_id}`;
 
-                        // Auto-detect category from caption
                         const autoCat = rawTitle.toLowerCase().includes("hantai") || rawTitle.toLowerCase().includes("hentai")
                             ? "HANTAI"
                             : "CORN REAL";
@@ -640,7 +634,7 @@
                                 fileId: videoObj.file_id,
                                 title: rawTitle,
                                 date: new Date(msg.date * 1000).toLocaleDateString(),
-                                size: sizeMB + " MB",
+                                size: sizeMB === "HD" ? "HD" : sizeMB + " MB",
                                 category: autoCat,
                                 tgPostLink: tgPostLink,
                                 customUrl: null,
@@ -657,14 +651,22 @@
                 saveDB();
                 renderGrid();
 
+                if (!silent) {
+                    logStatus(`Videos detected in updates: ${videoFoundInUpdates} | Newly added: ${newCount}`);
+                    if (videoFoundInUpdates === 0) {
+                        logStatus("⚠️ Bot ko abhi tak koi video update nahi mila! Ab apne Channel mein 1 NAYA video forward karein aur phir yeh button dabayein.");
+                    } else {
+                        showToast(`✅ Synced! (${newCount} New Videos)`);
+                    }
+                }
+
                 if (syncBtn) {
-                    syncBtn.innerText = newCount > 0 ? `✅ Added ${newCount} New Videos!` : "✅ Everything Up to Date";
-                    setTimeout(() => { syncBtn.innerText = "🔄 Fetch New Videos from Bot"; }, 2500);
+                    syncBtn.innerText = newCount > 0 ? `✅ Added ${newCount} New Videos!` : "⚡ Fix Webhook & Sync Channel Videos";
                 }
             } catch (e) {
                 console.error(e);
-                if (!silent) alert("Connection Error while syncing bot.");
-                if (syncBtn) syncBtn.innerText = "🔄 Fetch New Videos from Bot";
+                if (!silent) logStatus("Network Error: " + e.message);
+                if (syncBtn) syncBtn.innerText = "⚡ Fix Webhook & Sync Channel Videos";
             }
         }
 
@@ -707,7 +709,7 @@
                 return;
             }
 
-            alert("⚠️ Yeh video 20MB se bada hai!\n\nBade videos (2GB tak) chalane ke liye:\n1. Video apne Public Telegram Channel mein dalein (jahan bot admin ho), ya\n2. Admin Settings (⚙️) se Direct/Channel Link dalein.");
+            alert("⚠️ Yeh video 20MB se bada hai aur Private Channel/Chat se aaya hai!\n\n20MB+ video chalane ke liye apne Channel ko PUBLIC rakhein (taki uska @username ho) ya Admin panel mein Direct Link dalein.");
             btnEl.innerText = "▶️ Play Video";
         }
 
@@ -722,7 +724,7 @@
         }
 
         // ==========================================
-        // SHARE FUNCTIONS (Direct Link & Telegram Share)
+        // SHARE FUNCTIONS
         // ==========================================
         function getShareUrl(uniqueId) {
             const baseUrl = window.location.origin + window.location.pathname;
@@ -737,11 +739,7 @@
 
             if (navigator.share) {
                 try {
-                    await navigator.share({
-                        title: 'DARK-X-CORNHUB',
-                        text: shareText,
-                        url: shareUrl
-                    });
+                    await navigator.share({ title: 'DARK-X-CORNHUB', text: shareText, url: shareUrl });
                     return;
                 } catch (err) {}
             }
@@ -773,7 +771,6 @@
                 return v.title.toLowerCase().includes(search);
             });
 
-            // Put shared video right at the top if opened via share link
             if (sharedVideoId && db.videos[sharedVideoId]) {
                 list = list.sort((a, b) => (a.uniqueId === sharedVideoId ? -1 : b.uniqueId === sharedVideoId ? 1 : 0));
             }
@@ -782,13 +779,13 @@
                 grid.innerHTML = `
                     <div class="empty-box">
                         <h2>No Videos Found in ${activeCategory}</h2>
-                        <p style="margin-top:8px;">Send any video to your Telegram Bot or add via ⚙️ Settings.</p>
+                        <p style="margin-top:8px;">Channel ya Bot mein NAYA video forward karein, ya ⚙️ Settings se Sync karein.</p>
                     </div>`;
                 return;
             }
 
             grid.innerHTML = list.map(v => `
-                <div class="video-card ${v.hidden ? 'is-hidden' : ''} ${v.uniqueId === sharedVideoId ? 'shared-highlight' : ''}" id="card_${v.uniqueId}">
+                <div class="video-card ${v.hidden ? 'is-hidden' : ''} ${v.uniqueId === sharedVideoId ? 'shared-highlight' : ''}">
                     <div class="player-wrapper" id="player_box_${v.uniqueId}">
                         <button class="play-overlay-btn" onclick="loadAndPlay('${v.uniqueId}', this)">
                             ▶️ Play Video
@@ -805,7 +802,6 @@
                             </span>
                         </div>
 
-                        <!-- Share Buttons -->
                         <div class="share-row">
                             <button class="share-btn" onclick="shareVideo('${v.uniqueId}')">
                                 🔗 Share Link
@@ -815,7 +811,6 @@
                             </button>
                         </div>
 
-                        <!-- Admin Controls inside Card -->
                         <div class="card-admin-tools" style="display: ${isAdmin ? 'flex' : 'none'}">
                             <input type="text" id="title_in_${v.uniqueId}" value="${escapeHtml(v.title)}" placeholder="Edit Title...">
                             <select id="cat_in_${v.uniqueId}">
@@ -846,9 +841,6 @@
             filterCat('All', document.getElementById('pill_All'));
         }
 
-        // ==========================================
-        // SECRET GEAR & ADMIN FUNCTIONS
-        // ==========================================
         function openGearMenu() {
             document.getElementById('adminModal').style.display = 'flex';
             if (isAdmin) {
@@ -956,7 +948,6 @@
             return String(str || '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
         }
 
-        // Auto load on startup
         window.onload = () => {
             renderGrid();
             syncBotVideos(true);
